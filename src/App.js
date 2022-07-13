@@ -1,10 +1,20 @@
-import "./styles.css";
+import { Routes, Route } from "react-router-dom";
 
-export default function App() {
+import Home from "./routes/home/home.component";
+import Navigation from "./routes/navigation/navigation.component";
+import Authentication from "./routes/authentication/authentication.component";
+import Shop from "./routes/shop/shop.component";
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox a loos </h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home/>} />
+        <Route path="shop" element={<Shop/>} />
+        <Route path="auth" element={<Authentication/>} />
+      </Route>
+    </Routes>
   );
-}
+};
+
+export default App;
